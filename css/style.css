@@ -1,0 +1,270 @@
+.about-section {
+    padding: 100px 50px;
+    background: var(--dark);
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.feature i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 30px;
+}
+
+.feature span {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-text h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ФИКС ДЛЯ СКРОЛЛА ПОСЛЕ ФУТЕРА */
+.gamer-footer {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+}
+
+#main-page {
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ФИКС СКРОЛЛИНГА ПОСЛЕ ФУТЕРА */
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#main-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+.page {
+    position: relative; /* ИЗМЕНИ С absolute НА relative */
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    overflow-y: auto;
+    display: none; /* ДОБАВЬ ЭТО */
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    display: block; /* ДОБАВЬ ЭТО */
+}
+
+.main-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#main-page {
+    position: relative;
+    width: 100%;
+}
+
+#all-games-page {
+    background: var(--dark);
+    min-height: 100vh;
+    position: relative;
+}
+
+.all-games-container {
+    padding: 120px 50px 50px;
+    min-height: calc(100vh - 120px);
+}
+
+.page.exit {
+    opacity: 0;
+    transform: translateX(-100px);
+    visibility: hidden; /* ДОБАВИТЬ ЭТО */
+}
+
+.gamer-footer {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+/* Убедитесь, что контент не выходит за пределы */
+body::after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+/* ФИКС ДЛЯ МОДАЛЬНОГО ОКНА */
+.modal {
+    overflow-y: auto;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Обновленные стили для социальных иконок */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    border-radius: 50%;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-icon:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.social-text {
+    color: var(--text); /* Такой же цвет как основной текст */
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 5px; /* Отступ сверху для лучшего визуального разделения */
+}
+
+/* Эффект при наведении на весь блок */
+.social-item:hover {
+    transform: translateY(-3px);
+}
+
+.social-item:hover .social-icon {
+    background: var(--primary);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.social-item:hover .social-text {
+    color: var(--primary); /* Меняем цвет текста на основной при наведении */
+    text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+    .social-item {
+        gap: 5px;
+    }
+    
+    .social-text {
+        font-size: 0.7rem;
+    }
+}
